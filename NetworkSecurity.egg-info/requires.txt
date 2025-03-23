@@ -9,5 +9,3 @@ python-dotenv
 pymongo
 certifi
 requests
-
--e .
