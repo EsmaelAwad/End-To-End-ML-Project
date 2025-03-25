@@ -9,5 +9,5 @@ python-dotenv
 pymongo
 certifi
 requests
-
+pymongo[srv] >= 4.0
 -e .

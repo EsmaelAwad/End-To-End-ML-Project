@@ -10,6 +10,10 @@ networksecurity/components/__init__.py
 networksecurity/constants/__init__.py
 networksecurity/entity/__init__.py
 networksecurity/exceptions/__init__.py
+networksecurity/exceptions/exception.py
 networksecurity/logging/__init__.py
+networksecurity/logging/logger.py
 networksecurity/pipeline/__init__.py
+networksecurity/testing/__init__.py
+networksecurity/testing/testing_exception_logging.py
 networksecurity/utils/__init__.py

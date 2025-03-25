@@ -9,3 +9,6 @@
 
 #### Exception Handling
 - We created a custom exception handler for the entire project that accepts a custom message and returns where exactly the error happened and when and why.
+
+#### MongoDB Atlas
+- We'll create a cluster on mongo atlas, this will allow us to store data and actually create the pipeline.

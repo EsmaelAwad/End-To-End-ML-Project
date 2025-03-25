@@ -1,12 +1,20 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: NetworkSecurity
 Version: 0.1
-Summary: UNKNOWN
-Home-page: UNKNOWN
 Author: EsmaelAwad
 Author-email: eawad9329@gmail.com
-License: UNKNOWN
-Platform: UNKNOWN
-
-UNKNOWN
-
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: mlflow
+Requires-Dist: scikit-learn
+Requires-Dist: dvc
+Requires-Dist: dagshub
+Requires-Dist: boto3
+Requires-Dist: python-dotenv
+Requires-Dist: pymongo
+Requires-Dist: certifi
+Requires-Dist: requests
+Requires-Dist: pymongo[srv]>=4.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
