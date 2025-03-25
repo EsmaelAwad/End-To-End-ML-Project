@@ -12,3 +12,4 @@
 
 #### MongoDB Atlas
 - We'll create a cluster on mongo atlas, this will allow us to store data and actually create the pipeline.
+- We created the pipeline using the `push_data.py` file, you can see the collections in the cluster0 in the atlas: [here](https://cloud.mongodb.com/v2#/org/67e2d4523c165050c1738d80/projects)

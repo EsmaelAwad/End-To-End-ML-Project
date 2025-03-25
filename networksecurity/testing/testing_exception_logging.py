@@ -11,7 +11,4 @@ if __name__ == "__main__":
     try:
         result = divide_numbers(5, 0)
     except Exception:
-        err = NetworkSecurityException("Failed to divide numbers", sys.exc_info(), 500)
-        logger.error("An exception occurred:")
-        logger.exception(err)
-        print(err)
+        err = NetworkSecurityException("Failed to divide numbers", sys.exc_info(), 500, logger=logger)

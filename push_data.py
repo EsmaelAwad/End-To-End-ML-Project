@@ -51,7 +51,7 @@ class NetworkDataExtractor:
             try:
                 self.data = pd.read_csv('Network_Data/phishingData.csv')
             except FileNotFoundError:
-                raise NetworkSecurityException("File not found", sys.exc_info(), 404)
+                raise NetworkSecurityException("File not found", sys.exc_info(), 404, logger=logger)
         else:
             self.data = data
 
@@ -73,7 +73,7 @@ class NetworkDataExtractor:
         try:
             return list(json.loads(self.data.reset_index(drop=True).T.to_json()).values())
         except Exception:
-            raise NetworkSecurityException("Failed to convert data to JSON", sys.exc_info(), 500)
+            raise NetworkSecurityException("Failed to convert data to JSON", sys.exc_info(), 500,logger=logger)
 
     def insert_data_to_mongo_db(self, records: list, database: str, collection: str) -> dict:
         """
@@ -102,7 +102,7 @@ class NetworkDataExtractor:
                 'n_records': len(records)
             }
         except pymongo.errors.PyMongoError:
-            raise NetworkSecurityException("Failed to insert data into MongoDB", sys.exc_info(), 777)
+            raise NetworkSecurityException("Failed to insert data into MongoDB", sys.exc_info(), 777,logger=logger)
 
 
 if __name__ == "__main__":

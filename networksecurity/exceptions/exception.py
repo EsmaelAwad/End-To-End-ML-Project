@@ -1,49 +1,61 @@
 class NetworkSecurityException(Exception):
-    def __init__(self, message, error_details, error_code):
-        """
-        Custom exception class for handling errors within the NetworkSecurity module.
+    """
+    Custom exception class for handling and logging structured errors in the NetworkSecurity pipeline.
 
-        This exception extracts traceback details such as file name, line number, and function
-        where the exception occurred, and provides a formatted message for better debugging.
+    This class extracts detailed traceback information including the file name, line number, and 
+    function where the exception occurred. If a logger is provided, it will automatically log 
+    the error message and the full traceback for easier debugging.
 
-        Attributes:
-            message (str): A custom error message.
-            error_code (int): A custom error code representing the type of failure.
-            file_name (str): The name of the file where the exception was raised.
-            line_number (int): The line number where the exception was raised.
-            error_type (str): The name of the function or method where the exception was raised.
+    Attributes:
+        message (str): Description of the error.
+        error_code (int): Custom error code for categorizing the error.
+        file_name (str): The name of the file where the exception was raised.
+        line_number (int): The exact line number where the error occurred.
+        error_type (str): The function or method name where the exception occurred.
 
-        Args:
-            message (str): Description of the error.
-            error_details (tuple): Tuple from sys.exc_info() containing exception metadata.
-            error_code (int): Custom error code for categorizing the error.
+    Args:
+        message (str): A human-readable message describing the error.
+        error_details (tuple): Output from `sys.exc_info()` to extract traceback.
+        error_code (int): A custom code representing the failure context.
+        logger (logging.Logger, optional): Logger to automatically log the error and traceback.
 
-        Example:
-            ```python
-            import sys
-            from networksecurity.exceptions.exception import NetworkSecurityException
+    Example:
+        ```python
+        try:
+            risky_operation()
+        except Exception as e:
+            raise NetworkSecurityException("Operation failed", sys.exc_info(), 501, logger)
+        ```
 
-            try:
-                result = 10 / 0
-            except Exception:
-                raise NetworkSecurityException("Division failed", sys.exc_info(), 500)
-            ```
+    Log Output:
+        2025-03-25 22:10:23,045 - __main__ - ERROR - Error occurred in file: main.py at line 27 in function: process_data, with code: 501 and message: Operation failed
+        2025-03-25 22:10:23,046 - __main__ - ERROR - Traceback (most recent call last):
+          File "main.py", line 26, in process_data
+            risky_operation()
+          ...
+    """
 
-        Output:
-            Error occurred in file: main.py at line 12 in function: <module>,
-            with code: 500 and message: Division failed
-        """
+    def __init__(self, message, error_details, error_code, logger=None):
         super().__init__(message)
         self.message = message
-        _, _, tb = error_details  # unpack the tuple
         self.error_code = error_code
+
+        # Extract traceback info from sys.exc_info()
+        _, _, tb = error_details
         self.line_number = tb.tb_lineno
         self.file_name = tb.tb_frame.f_code.co_filename
         self.error_type = tb.tb_frame.f_code.co_name
 
+        # Optional logging: log both the formatted message and full traceback
+        if logger:
+            logger.error(self.__str__())           # Logs custom structured error message
+            logger.exception(message)              # Logs full traceback automatically
+
     def __str__(self):
         return (
-            f"Error occurred in file: {self.file_name} at line {self.line_number} "
-            f"in function: {self.error_type}, with code: {self.error_code} "
+            f"Error occurred in file: {self.file_name} "
+            f"at line {self.line_number} "
+            f"in function: {self.error_type}, "
+            f"with code: {self.error_code} "
             f"and message: {self.message}"
         )

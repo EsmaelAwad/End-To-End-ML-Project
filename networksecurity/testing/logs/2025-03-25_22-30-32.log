@@ -1,0 +1,10 @@
+2025-03-25 22:30:32,686 - networksecurity.logging.logger - INFO - Logging started...
+2025-03-25 22:30:32,686 - networksecurity.logging.logger - INFO - __main__
+2025-03-25 22:30:32,686 - networksecurity.logging.logger - ERROR - Error occurred in file: E:\Personal Laptop Python Projects And Studying Drafts\9- End-To-End ML Model With Deployment\networksecurity\testing\testing_exception_logging.py at line 12 in function: <module>, with code: 500 and message: Failed to divide numbers
+2025-03-25 22:30:32,686 - networksecurity.logging.logger - ERROR - Failed to divide numbers
+Traceback (most recent call last):
+  File "E:\Personal Laptop Python Projects And Studying Drafts\9- End-To-End ML Model With Deployment\networksecurity\testing\testing_exception_logging.py", line 12, in <module>
+    result = divide_numbers(5, 0)
+  File "E:\Personal Laptop Python Projects And Studying Drafts\9- End-To-End ML Model With Deployment\networksecurity\testing\testing_exception_logging.py", line 8, in divide_numbers
+    return a / b
+ZeroDivisionError: division by zero
