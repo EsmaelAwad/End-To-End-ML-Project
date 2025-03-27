@@ -1,0 +1,17 @@
+2025-03-27 06:23:20,582 - networksecurity.logging.logger - INFO - Logging started...
+2025-03-27 06:23:22,000 - networksecurity.logging.logger - INFO - Logging started...
+2025-03-27 06:23:22,028 - networksecurity.logging.logger - INFO - UTILS Logging Started
+2025-03-27 06:23:22,028 - networksecurity.logging.logger - INFO - DataValidation Logging Started
+2025-03-27 06:23:22,028 - networksecurity.logging.logger - INFO - Logging started...
+2025-03-27 06:23:22,139 - networksecurity.logging.logger - INFO - Initiating the data ingestion
+2025-03-27 06:23:26,120 - networksecurity.logging.logger - INFO - Successfully fetched 11055 rows and 32 columns from MongoDB.
+2025-03-27 06:23:26,162 - networksecurity.logging.logger - INFO - Successfully exported the data as a csv file in the feature store.
+2025-03-27 06:23:26,180 - networksecurity.logging.logger - INFO - Performed train test split on the data
+2025-03-27 06:23:26,226 - networksecurity.logging.logger - INFO - Exported the train and testing files
+2025-03-27 06:23:26,226 - networksecurity.logging.logger - INFO - Data Ingestion Completed
+2025-03-27 06:23:26,306 - networksecurity.logging.logger - INFO - Number of columns in the dataframe is as expected
+2025-03-27 06:23:26,306 - networksecurity.logging.logger - INFO - Number of columns in the dataframe is as expected
+2025-03-27 06:23:26,306 - networksecurity.logging.logger - INFO - All the numerical columns are present in the dataframe
+2025-03-27 06:23:26,306 - networksecurity.logging.logger - INFO - All the numerical columns are present in the dataframe
+2025-03-27 06:23:26,381 - networksecurity.logging.logger - INFO - No Data Drift detected
+2025-03-27 06:23:26,433 - networksecurity.logging.logger - INFO - Data Validation Completed
